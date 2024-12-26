@@ -5,6 +5,6 @@ module org.cosmos.deliveryapp {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
 
-    opens org.cosmos.deliveryapp to javafx.fxml;
-    exports org.cosmos.deliveryapp;
+    opens Frontend to javafx.fxml;
+    exports Frontend;
 }
