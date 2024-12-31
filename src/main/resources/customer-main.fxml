@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="Frontend.CustomerController" spacing="20" style="-fx-padding: 20; -fx-background-color: #f9f9f9;">
+
+    <Label text="Customer Interface" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+
+    <VBox spacing="15" style="-fx-padding: 15; -fx-background-color: #ffffff; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;">
+        <Label text="Place an Order" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #555;" />
+        <TextField fx:id="contactField" promptText="Your Contact Details" />
+        <TextField fx:id="addressField" promptText="Receiver's Address" />
+        <TextField fx:id="priceField" promptText="Order Price" />
+        <TextArea fx:id="descriptionArea" promptText="Order Description (Optional)" />
+        <Button fx:id="placeOrderButton" text="Place Order" onAction="#handlePlaceOrder"
+                style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px;" />
+    </VBox>
+
+    <VBox spacing="15" style="-fx-padding: 15; -fx-background-color: #ffffff; -fx-border-color: #ddd; -fx-border-radius: 8; -fx-background-radius: 8;">
+        <Label text="Nearby Orders" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #555;" />
+        <TableView fx:id="ordersTable" prefHeight="250" style="-fx-border-color: #ccc; -fx-border-radius: 8;">
+            <columns>
+                <TableColumn text="Order ID" fx:id="orderIdColumn" />
+                <TableColumn text="Receiver Address" fx:id="receiverAddressColumn" />
+                <TableColumn text="Price" fx:id="orderPriceColumn" />
+                <TableColumn text="Status" fx:id="orderStatusColumn" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="15" alignment="CENTER">
+            <Button fx:id="paymentButton" text="Make Payment" onAction="#handlePayment"
+                    style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-font-size: 14px;" />
+            <Button fx:id="trackDeliveryButton" text="Track Delivery" onAction="#handleTrackDelivery"
+                    style="-fx-background-color: #ffc107; -fx-text-fill: white; -fx-font-size: 14px;" />
+        </HBox>
+
+        <ProgressBar fx:id="deliveryProgressBar" prefWidth="500" progress="0.0"
+                     style="-fx-accent: #007bff;" />
+    </VBox>
+
+</VBox>
