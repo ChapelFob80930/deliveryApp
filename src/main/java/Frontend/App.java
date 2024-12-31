@@ -12,10 +12,16 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("customer-main.fxml")));
+            // Debugging
+            System.out.println(getClass().getResource("/customer-main.fxml"));
+            System.out.println(getClass().getResource("/customer-style.css"));
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/customer-main.fxml")));
+
 
             Scene scene = new Scene(fxmlLoader.load(), 900, 700);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("customer-style.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/customer-style.css")).toExternalForm());
 
             stage.setTitle("Delivery App - Customer Interface");
             stage.setScene(scene);
