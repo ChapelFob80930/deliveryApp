@@ -72,10 +72,21 @@ public class LoginController {
             }
 
             // Step 3: Determine role from radio buttons
-            String role = receiverRadioButton.isSelected() ? "Receiver" : "Courier";
+            if (receiverRadioButton.isSelected()) {
 
-            // Login successful
-            showAlert("Login Successful", "Welcome, " + role + "!");
+                userSession.setUserEmail(email);
+                // Redirect to the receiver page
+                MainApp.openNewStage("reciever.fxml", "Receiver Dashboard");
+
+                // Close the current login window
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                stage.close();
+            } else if (courierRadioButton.isSelected()) {
+                // Handle the courier case (future implementation)
+                showAlert("Login Successful", "Courier functionality not yet implemented.");
+            } else {
+                showAlert("Role Selection Error", "Please select a role (Receiver or Courier).");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             showAlert("Database Error", "An error occurred while connecting to the database.");

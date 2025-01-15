@@ -1,0 +1,4 @@
+INSERT INTO orders 
+(ReceiverId, SenderId, ReceiversAddress, OrderPrice, EstimatedTime, OrderStatus, DetailedDescription, OrderDate)
+VALUES 
+(15, 17, '456 Elm Street, Springfield', 79.99, 45, 'Accepted', 'Order description: Electronics delivery', '2023-11-15');
